@@ -1,7 +1,7 @@
 import datetime
 import json
 import hashlib
-from flask import (Flask, jsonify, request)
+from flask import Flask, jsonify, request
 import requests
 from uuid import uuid4
 from urllib.parse import urlparse
@@ -102,7 +102,7 @@ def mine():
 	previous_proof=previous_block['proof']
 	proof=blockchain.proof_of_work(previous_proof)
 	previous_hash=blockchain.hash_func(previous_block)
-	blockchain.add_transaction(sender=node_address,receiver='vijay',amount=2)
+	blockchain.add_transaction(sender=node_address,receiver='anonymous2',amount=2)
 	block=blockchain.create_block(proof,previous_hash)
 	response={
 	'message':'Congratulations you have successfully mined a block',
@@ -171,4 +171,4 @@ def replace_chain():
 
 
 
-app.run(host='0.0.0.0',port=5000)
+app.run(host='0.0.0.0',port=5002)
